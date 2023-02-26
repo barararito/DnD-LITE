@@ -1,0 +1,60 @@
+{
+	"init" : {
+            		"content": "Come one, come all! Welcome to Dungeons n Dragons, SMS Edition! DnD: SMS Edition is an interactive game played entirely through SMS messages. You will act during the game through simple one word messages.",
+            		"next_state": "init2"
+        	},
+    	"init2" : {
+            		"content": "The story begins at the Adventurer’s Guild, where a merchant is seeking the talents of a skilled warrior. You answer the call, and appear at the [Merchant’s Shop], where the humble merchant informs you of what he needs you to do.",
+            		"next_state": "MerchantIntro"
+        	},
+    	"MerchantIntro" : {
+            		"content": "Merchant: “Hello, warrior! Can you give me your name, so that I don’t need to refer to you simply as ‘Warrior’? Just your first name, I don’t need anything else…” You shake your head no",
+            		"next_state": "MerchantIntro2"
+        },
+    	"MerchantIntro2" : {
+            			"content": "Merchant: “Excellent! Well [Name], here is what I needed a warrior to accomplish for me. At one point while I was traveling, many of my wares were stolen by bandits (or goblins…?). Included in my cargo was a rare item that was said to have once belonged to a great dragon, who lives at the top of the mountain a few days’ ride from the village. Of course, I will reward you handsomely for the return of that item, and will support you along your investigation of where it could be. However, since I am still a merchant, I will also have extra items for sale that may assist you. For now, I will give you these [Health Potions], but any more after these I will charge you for. I will heal you free of charge outside of selling wares, however. Now, what say you, Warrior? Will you assist this humble merchant?” (Respond Yes or No).",
+            			"next_state": [
+                    				{
+                        				"input" : "Yes",
+                        				"next_state" : "MerchantTutorial"
+                    				},
+                    				{
+                        				"input" : "No",
+                        				"next_state" : "byebye"
+                    				}
+                			]
+        },
+    	"byebye"  : {
+            		"content" : " Merchant: Well then, Warrior, I'll look for another Guild member to assist me. Thank you!",
+            		"next_state" : "end"
+        	},
+    	"MerchantTutorial"  : {
+            		"content" : "Merchant: Thank you Warrior! I know of your greatness, but allow me to give you a quick refresher on how to fight! First, I will conjure a goblin.",
+			"next_state" : "GoblinT1"
+        	},
+	"GoblinT1"  : {
+            		"content" : "Goblin: A small green-skinned being. It is holding a club and growling at you, but it's not moving.",
+			"next_state" : "GoblinT2"
+        	},
+	"GoblinT2"  : {
+			"content" : "Merchant: Now, we are in battle against a goblin. However healthy the goblin is is irrelevant. All you need to do is hit it. Now! Attack! (Reply with 'Attack')",
+			"next_state": [
+					{
+						"input" : "Attack",
+						"next_state" : "GoblinT3"
+					}
+				      ]
+		},
+	"GoblinT3" : {
+			"content" : "*You swing at the goblin with your trusty sword, which you keep sheathed at your side at all times. The goblin's head is swiftly separated from its shoulders*",
+			"next_state" : "MerchantTutorial2"
+		},
+	"MerchantTutorial2"  : {
+            		"content" : "Merchant: You did it! Now I can fully place my trust in you. Now go, try to find out who may have taken my wares. But be careful, your death is not an impossibility, given the enemies you will encounter...",
+			"next_state" : "end"
+        	},
+	"end"  : {
+			"content" : "done"
+		}
+
+}
